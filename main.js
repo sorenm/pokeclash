@@ -52,8 +52,9 @@ var mainState = {
       menu.scale.setTo(0.1, 0.1);
       menu.inputEnabled = true;
       menu.events.onInputDown.add(function(){
-      backgroundSprite.loadTexture('menuBackground');
-      game.paused = !game.paused;
+        // load the menu background
+        backgroundSprite.loadTexture('menuBackground');
+        pokemon.destroy();
       }, this);
     	// Set the physics system
      	game.physics.startSystem(Phaser.Physics.ARCADE);
