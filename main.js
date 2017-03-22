@@ -43,6 +43,7 @@ var mainState = {
         game.load.image('snorlax', 'http://pokemongame:8080/sprites/snorlax.png');
         game.load.image('lapras', 'http://pokemongame:8080/sprites/lapras.png');
         game.load.image('electrabuzz', 'http://pokemongame:8080/sprites/electrabuzz.png');
+        game.load.image('magmar', 'http://pokemongame:8080/sprites/magmar.png');
     },
 
     create: function() {
@@ -98,7 +99,7 @@ function createPokemon(updatesCounter) {
   var pokemons = [
     'pokemon', 'charmander', 'squirtle', 'bulbasaur',
     'pidgey', 'rattata', 'voltorb', 'aerodactyl',
-    'snorlax', 'lapras', 'electrabuzz'
+    'snorlax', 'lapras', 'electrabuzz', 'magmar'
   ];
   var name = pokemons [Math.floor(Math.random() * pokemons.length)]
 
@@ -135,6 +136,7 @@ function createPokemon(updatesCounter) {
         gravity = 550
         break;
       case 'electrabuzz':
+      case 'magmar':
         pokemon.scale.setTo (0.5, 0.5);
         gravity = 550
         break;
