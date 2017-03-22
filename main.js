@@ -42,6 +42,7 @@ var mainState = {
         game.load.image('aerodactyl', 'http://pokemongame:8080/sprites/aerodactyl.png');
         game.load.image('snorlax', 'http://pokemongame:8080/sprites/snorlax.png');
         game.load.image('lapras', 'http://pokemongame:8080/sprites/lapras.png');
+        game.load.image('electrabuzz', 'http://pokemongame:8080/sprites/electrabuzz.png');
     },
 
     create: function() {
@@ -55,6 +56,7 @@ var mainState = {
         // load the menu background
         backgroundSprite.loadTexture('menuBackground');
         pokemon.destroy();
+        game.paused = true;
       }, this);
     	// Set the physics system
      	game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -96,13 +98,13 @@ function createPokemon(updatesCounter) {
   var pokemons = [
     'pokemon', 'charmander', 'squirtle', 'bulbasaur',
     'pidgey', 'rattata', 'voltorb', 'aerodactyl',
-    'snorlax', 'lapras'
+    'snorlax', 'lapras', 'electrabuzz'
   ];
   var name = pokemons [Math.floor(Math.random() * pokemons.length)]
 
 
     // Display the Pokemon on the screen
-    var pokemon = game.add.sprite(horizontalPosition, verticalPosition, name);
+    pokemon = game.add.sprite(horizontalPosition, verticalPosition, name);
 
     switch (name) {
       case 'squirtle':
@@ -130,6 +132,10 @@ function createPokemon(updatesCounter) {
         break;
       case 'lapras':
         pokemon.scale.setTo (0.1, 0.1);
+        gravity = 550
+        break;
+      case 'electrabuzz':
+        pokemon.scale.setTo (0.5, 0.5);
         gravity = 550
         break;
     }
